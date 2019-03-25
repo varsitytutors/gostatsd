@@ -3,7 +3,7 @@ package stats
 import (
 	"time"
 
-	"github.com/atlassian/gostatsd"
+	"github.com/varsitytutors/gostatsd"
 )
 
 // NullStatser is a null implementation of Statser, intended primarily

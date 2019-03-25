@@ -4,7 +4,7 @@ import (
 	"context"
 	"sync"
 
-	"github.com/atlassian/gostatsd"
+	"github.com/varsitytutors/gostatsd"
 )
 
 type capturingHandler struct {

@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/atlassian/gostatsd"
+	"github.com/varsitytutors/gostatsd"
 
 	"github.com/ash2k/stager/wait"
 	"github.com/gorilla/mux"

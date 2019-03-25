@@ -4,8 +4,8 @@ import (
 	"context"
 	"time"
 
-	"github.com/atlassian/gostatsd"
-	"github.com/atlassian/gostatsd/pkg/stats"
+	"github.com/varsitytutors/gostatsd"
+	"github.com/varsitytutors/gostatsd/pkg/stats"
 )
 
 // DispatcherProcessFunc is a function that gets executed by Dispatcher for each Aggregator, passing it into the function.

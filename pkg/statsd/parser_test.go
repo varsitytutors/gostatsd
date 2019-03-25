@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"testing"
 
-	"github.com/atlassian/gostatsd"
+	"github.com/varsitytutors/gostatsd"
 
 	"github.com/stretchr/testify/assert"
 	"golang.org/x/time/rate"

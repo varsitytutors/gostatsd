@@ -7,9 +7,9 @@ import (
 	"time"
 
 	"github.com/ash2k/stager/wait"
-	"github.com/atlassian/gostatsd"
-	"github.com/atlassian/gostatsd/pkg/statsd"
-	"github.com/atlassian/gostatsd/pkg/web"
+	"github.com/varsitytutors/gostatsd"
+	"github.com/varsitytutors/gostatsd/pkg/statsd"
+	"github.com/varsitytutors/gostatsd/pkg/web"
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/require"
 	"github.com/tilinna/clock"

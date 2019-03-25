@@ -9,9 +9,9 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/atlassian/gostatsd"
-	"github.com/atlassian/gostatsd/pkg/stats"
-	"github.com/atlassian/gostatsd/pkg/web"
+	"github.com/varsitytutors/gostatsd"
+	"github.com/varsitytutors/gostatsd/pkg/stats"
+	"github.com/varsitytutors/gostatsd/pkg/web"
 
 	"github.com/ash2k/stager"
 	reuseport "github.com/libp2p/go-reuseport"

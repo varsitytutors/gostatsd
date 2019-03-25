@@ -8,7 +8,7 @@ GOBUILD_VERSION_ARGS := -ldflags "-s -X $(VERSION_VAR)=$(REPO_VERSION) -X $(GIT_
 BINARY_NAME := statsd-tester
 IMAGE_NAME := atlassianlabs/$(BINARY_NAME)
 ARCH ?= darwin
-MAIN_PKG := github.com/atlassian/gostatsd/cmd/tester
+MAIN_PKG := github.com/varsitytutors/gostatsd/cmd/tester
 
 setup:
 	go get -u github.com/githubnemo/CompileDaemon

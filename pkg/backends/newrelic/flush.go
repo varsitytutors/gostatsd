@@ -4,7 +4,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/atlassian/gostatsd"
+	"github.com/varsitytutors/gostatsd"
 )
 
 // flush represents a send operation.

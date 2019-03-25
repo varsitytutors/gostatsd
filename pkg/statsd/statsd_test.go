@@ -8,8 +8,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/atlassian/gostatsd"
-	"github.com/atlassian/gostatsd/pkg/fakesocket"
+	"github.com/varsitytutors/gostatsd"
+	"github.com/varsitytutors/gostatsd/pkg/fakesocket"
 
 	"github.com/spf13/viper"
 	"golang.org/x/time/rate"

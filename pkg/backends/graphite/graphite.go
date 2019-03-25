@@ -10,8 +10,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/atlassian/gostatsd"
-	"github.com/atlassian/gostatsd/pkg/backends/sender"
+	"github.com/varsitytutors/gostatsd"
+	"github.com/varsitytutors/gostatsd/pkg/backends/sender"
 
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"

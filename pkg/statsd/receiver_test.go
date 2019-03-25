@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/atlassian/gostatsd/pkg/fakesocket"
+	"github.com/varsitytutors/gostatsd/pkg/fakesocket"
 	"github.com/magiconair/properties/assert"
 	"github.com/stretchr/testify/require"
 )

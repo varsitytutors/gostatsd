@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/atlassian/gostatsd"
+	"github.com/varsitytutors/gostatsd"
 
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"

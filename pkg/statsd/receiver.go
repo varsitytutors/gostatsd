@@ -6,10 +6,10 @@ import (
 	"strings"
 	"sync/atomic"
 
-	"github.com/atlassian/gostatsd"
-	"github.com/atlassian/gostatsd/pkg/fakesocket"
-	"github.com/atlassian/gostatsd/pkg/pool"
-	"github.com/atlassian/gostatsd/pkg/stats"
+	"github.com/varsitytutors/gostatsd"
+	"github.com/varsitytutors/gostatsd/pkg/fakesocket"
+	"github.com/varsitytutors/gostatsd/pkg/pool"
+	"github.com/varsitytutors/gostatsd/pkg/stats"
 
 	"github.com/ash2k/stager/wait"
 	"github.com/sirupsen/logrus"

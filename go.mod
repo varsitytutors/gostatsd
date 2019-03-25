@@ -1,4 +1,4 @@
-module github.com/atlassian/gostatsd
+module github.com/varsitytutors/gostatsd
 
 require (
 	github.com/ash2k/stager v0.0.0-20170622123058-6e9c7b0eacd4
