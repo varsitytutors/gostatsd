@@ -3,7 +3,7 @@ package datadog
 import (
 	"fmt"
 
-	"github.com/atlassian/gostatsd"
+	"github.com/varsitytutors/gostatsd"
 )
 
 type metricType string

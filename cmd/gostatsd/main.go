@@ -14,10 +14,10 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/atlassian/gostatsd"
-	"github.com/atlassian/gostatsd/pkg/backends"
-	"github.com/atlassian/gostatsd/pkg/cloudproviders"
-	"github.com/atlassian/gostatsd/pkg/statsd"
+	"github.com/varsitytutors/gostatsd"
+	"github.com/varsitytutors/gostatsd/pkg/backends"
+	"github.com/varsitytutors/gostatsd/pkg/cloudproviders"
+	"github.com/varsitytutors/gostatsd/pkg/statsd"
 
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/pflag"

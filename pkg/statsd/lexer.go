@@ -6,8 +6,8 @@ import (
 	"math"
 	"strconv"
 
-	"github.com/atlassian/gostatsd"
-	"github.com/atlassian/gostatsd/pkg/pool"
+	"github.com/varsitytutors/gostatsd"
+	"github.com/varsitytutors/gostatsd/pkg/pool"
 )
 
 type lexer struct {

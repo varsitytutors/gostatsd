@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/atlassian/gostatsd"
-	"github.com/atlassian/gostatsd/pkg/stats"
+	"github.com/varsitytutors/gostatsd"
+	"github.com/varsitytutors/gostatsd/pkg/stats"
 )
 
 type processCommand struct {

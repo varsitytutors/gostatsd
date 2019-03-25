@@ -3,7 +3,7 @@ package statsd
 import (
 	"context"
 
-	"github.com/atlassian/gostatsd"
+	"github.com/varsitytutors/gostatsd"
 
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"

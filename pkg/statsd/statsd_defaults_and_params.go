@@ -6,7 +6,7 @@ import (
 
 	"strings"
 
-	"github.com/atlassian/gostatsd"
+	"github.com/varsitytutors/gostatsd"
 
 	"github.com/spf13/pflag"
 )

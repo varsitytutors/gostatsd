@@ -3,7 +3,7 @@ package null
 import (
 	"context"
 
-	"github.com/atlassian/gostatsd"
+	"github.com/varsitytutors/gostatsd"
 
 	"github.com/spf13/viper"
 )

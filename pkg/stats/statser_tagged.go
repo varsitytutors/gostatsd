@@ -3,7 +3,7 @@ package stats
 import (
 	"time"
 
-	"github.com/atlassian/gostatsd"
+	"github.com/varsitytutors/gostatsd"
 )
 
 // TaggedStatser adds tags and submits metrics to another Statser

@@ -3,7 +3,7 @@ package stats
 import (
 	"time"
 
-	"github.com/atlassian/gostatsd"
+	"github.com/varsitytutors/gostatsd"
 )
 
 // Statser is the interface for sending metrics

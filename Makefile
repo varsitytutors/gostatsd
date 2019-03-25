@@ -12,8 +12,8 @@ ARCH ?= $$(uname -s | tr A-Z a-z)
 METALINTER_CONCURRENCY ?= 4
 GOVERSION := 1.10.2
 GP := /gopath
-MAIN_PKG := github.com/atlassian/gostatsd/cmd/gostatsd
-CLUSTER_PKG := github.com/atlassian/gostatsd/cmd/cluster
+MAIN_PKG := github.com/varsitytutors/gostatsd/cmd/gostatsd
+CLUSTER_PKG := github.com/varsitytutors/gostatsd/cmd/cluster
 PROTOBUF_VERSION ?= 3.6.1
 
 setup: setup-ci
@@ -97,7 +97,7 @@ fuzz-setup:
 	go get -v -u github.com/dvyukov/go-fuzz/go-fuzz-build
 
 fuzz:
-	go-fuzz-build github.com/atlassian/gostatsd/pkg/statsd
+	go-fuzz-build github.com/varsitytutors/gostatsd/pkg/statsd
 	go-fuzz -bin=./statsd-fuzz.zip -workdir=test_fixtures/lexer_fuzz
 
 watch:
@@ -112,7 +112,7 @@ docker: pb/gostatsd.pb.go
 	docker run \
 		--rm \
 		-v "$(GOPATH)":"$(GP)" \
-		-w "$(GP)/src/github.com/atlassian/gostatsd" \
+		-w "$(GP)/src/github.com/varsitytutors/gostatsd" \
 		-e GOPATH="$(GP)" \
 		-e CGO_ENABLED=0 \
 		golang:$(GOVERSION) \
@@ -125,7 +125,7 @@ docker-race: pb/gostatsd.pb.go
 	docker run \
 		--rm \
 		-v "$(GOPATH)":"$(GP)" \
-		-w "$(GP)/src/github.com/atlassian/gostatsd" \
+		-w "$(GP)/src/github.com/varsitytutors/gostatsd" \
 		-e GOPATH="$(GP)" \
 		golang:$(GOVERSION) \
 		go build -race -o build/bin/linux/$(BINARY_NAME) $(GOBUILD_VERSION_ARGS) $(MAIN_PKG)
@@ -137,7 +137,7 @@ docker-symbols: pb/gostatsd.pb.go
 	docker run \
 		--rm \
 		-v "$(GOPATH)":"$(GP)" \
-		-w "$(GP)/src/github.com/atlassian/gostatsd" \
+		-w "$(GP)/src/github.com/varsitytutors/gostatsd" \
 		-e GOPATH="$(GP)" \
 		-e CGO_ENABLED=0 \
 		golang:$(GOVERSION) \

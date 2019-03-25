@@ -9,7 +9,7 @@ import (
 	"github.com/ash2k/stager"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/atlassian/gostatsd"
+	"github.com/varsitytutors/gostatsd"
 )
 
 func newFakeAggregator() *MetricAggregator {

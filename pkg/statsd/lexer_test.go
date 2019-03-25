@@ -3,8 +3,8 @@ package statsd
 import (
 	"testing"
 
-	"github.com/atlassian/gostatsd"
-	"github.com/atlassian/gostatsd/pkg/pool"
+	"github.com/varsitytutors/gostatsd"
+	"github.com/varsitytutors/gostatsd/pkg/pool"
 
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"

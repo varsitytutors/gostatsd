@@ -3,8 +3,8 @@ package cloudproviders
 import (
 	"fmt"
 
-	"github.com/atlassian/gostatsd"
-	"github.com/atlassian/gostatsd/pkg/cloudproviders/aws"
+	"github.com/varsitytutors/gostatsd"
+	"github.com/varsitytutors/gostatsd/pkg/cloudproviders/aws"
 
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
