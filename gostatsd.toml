@@ -1,4 +1,4 @@
-backends = 'newrelic stdout'
+backends = 'newrelic'
 
 [newrelic]
     address = "http://localhost:8001/v1/data"
