@@ -1,0 +1,5 @@
+backends = 'newrelic stdout'
+
+[newrelic]
+    address = "http://localhost:8001/v1/data"
+    event-type = "GoStatsD"
