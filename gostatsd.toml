@@ -2,4 +2,4 @@ backends = 'newrelic'
 
 [newrelic]
     address = "http://localhost:8001/v1/data"
-    event-type = "GoStatsD"
+    event-type = "StatsD"
