@@ -1,0 +1,14 @@
+[Unit]
+Description=statsd metric service
+Requires=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu
+ExecStart=/opt/gostatsd/gostatsd --config-path /opt/gostatsd/gostatsd.toml
+Restart=on-failure
+ExecStop=/usr/bin/killall gostatsd -SIGTERM
+
+[Install]
+WantedBy=multi-user.target
