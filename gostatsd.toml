@@ -1,4 +1,7 @@
-backends = 'newrelic'
+backends = 'newrelic datadog'
+
+[datadog]
+    api_key = "2f8e4f531461a003a7cfa6cb38a508da"
 
 [newrelic]
     address = "http://localhost:8001/v1/data"
