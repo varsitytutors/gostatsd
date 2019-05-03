@@ -6,4 +6,5 @@
 /cmd/tester/statsd-tester*
 /test-report.xml
 build/dev/data/
+/.idea
 /.vscode
