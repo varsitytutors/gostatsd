@@ -3,6 +3,8 @@ Description=statsd metric service
 Requires=network.target
 
 [Service]
+ExecPre=echo AWS_REGION=$(curl http://169.254.169.254/latest/dynamic/instance-identity/document|grep region|awk -F\" '{print $4}') >> /etc/region
+EnvironmentFile=/etc/region
 Type=simple
 User=ubuntu
 WorkingDirectory=/home/ubuntu
