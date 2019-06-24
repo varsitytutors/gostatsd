@@ -5,9 +5,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/varsitytutors/gostatsd"
 	log "github.com/sirupsen/logrus"
+	"github.com/varsitytutors/gostatsd"
 
+	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/cloudwatch"
 	"github.com/aws/aws-sdk-go/service/cloudwatch/cloudwatchiface"
@@ -55,10 +56,15 @@ func NewClient(namespace string, disabled gostatsd.TimerSubtypes) (*Client, erro
 	}, nil
 }
 
-func extractDimensions(tags gostatsd.Tags) (dimensions []*cloudwatch.Dimension) {
+func extractDimensions(tags gostatsd.Tags, hostname string) (dimensions []*cloudwatch.Dimension) {
 	dimensions = []*cloudwatch.Dimension{}
+	dimensions = append(dimensions, &cloudwatch.Dimension{
+		Name:  aws.String("hostname"),
+		Value: &hostname,
+	})
 
 	for _, tag := range tags {
+
 		key := tag
 		value := "set"
 
@@ -91,8 +97,8 @@ func (client Client) buildMetricData(metrics *gostatsd.MetricMap) (metricData []
 	now := time.Now()
 	prefix := ""
 
-	addMetricData := func(key string, unit string, value float64, tags gostatsd.Tags) {
-		dimensions := extractDimensions(tags)
+	addMetricData := func(key string, unit string, value float64, tags gostatsd.Tags, hostname string) {
+		dimensions := extractDimensions(tags, hostname)
 		key = prefix + key
 
 		metricData = append(metricData, &cloudwatch.MetricDatum{
@@ -106,52 +112,54 @@ func (client Client) buildMetricData(metrics *gostatsd.MetricMap) (metricData []
 
 	prefix = "stats.counter."
 	metrics.Counters.Each(func(key, tagsKey string, counter gostatsd.Counter) {
-		addMetricData(key+".count", "Count", float64(counter.Value), counter.Tags)
-		addMetricData(key+".per_second", "Count/Second", counter.PerSecond, counter.Tags)
+		addMetricData(key+".count", "Count", float64(counter.Value), counter.Tags, counter.Hostname)
+		if !disabled.CountPerSecond {
+			addMetricData(key+".per_second", "Count/Second", counter.PerSecond, counter.Tags, counter.Hostname)
+		}
 	})
 
 	prefix = "stats.timers."
 	metrics.Timers.Each(func(key, tagsKey string, timer gostatsd.Timer) {
 		if !disabled.Lower {
-			addMetricData(key+".lower", "Milliseconds", timer.Min, timer.Tags)
+			addMetricData(key+".lower", "Milliseconds", timer.Min, timer.Tags, timer.Hostname)
 		}
 		if !disabled.Upper {
-			addMetricData(key+".upper", "Milliseconds", timer.Max, timer.Tags)
+			addMetricData(key+".upper", "Milliseconds", timer.Max, timer.Tags, timer.Hostname)
 		}
 		if !disabled.Count {
-			addMetricData(key+".count", "Count", float64(timer.Count), timer.Tags)
+			addMetricData(key+".count", "Count", float64(timer.Count), timer.Tags, timer.Hostname)
 		}
 		if !disabled.CountPerSecond {
-			addMetricData(key+".count_ps", "Count/Second", timer.PerSecond, timer.Tags)
+			addMetricData(key+".count_ps", "Count/Second", timer.PerSecond, timer.Tags, timer.Hostname)
 		}
 		if !disabled.Mean {
-			addMetricData(key+".mean", "Milliseconds", timer.Mean, timer.Tags)
+			addMetricData(key+".mean", "Milliseconds", timer.Mean, timer.Tags, timer.Hostname)
 		}
 		if !disabled.Median {
-			addMetricData(key+".median", "Milliseconds", timer.Median, timer.Tags)
+			addMetricData(key+".median", "Milliseconds", timer.Median, timer.Tags, timer.Hostname)
 		}
 		if !disabled.StdDev {
-			addMetricData(key+".std", "Milliseconds", timer.StdDev, timer.Tags)
+			addMetricData(key+".std", "Milliseconds", timer.StdDev, timer.Tags, timer.Hostname)
 		}
 		if !disabled.Sum {
-			addMetricData(key+".sum", "Milliseconds", timer.Sum, timer.Tags)
+			addMetricData(key+".sum", "Milliseconds", timer.Sum, timer.Tags, timer.Hostname)
 		}
 		if !disabled.SumSquares {
-			addMetricData(key+".sum_squares", "Milliseconds", timer.SumSquares, timer.Tags)
+			addMetricData(key+".sum_squares", "Milliseconds", timer.SumSquares, timer.Tags, timer.Hostname)
 		}
 		for _, pct := range timer.Percentiles {
-			addMetricData(key+"."+pct.Str, "Milliseconds", pct.Float, timer.Tags)
+			addMetricData(key+"."+pct.Str, "Milliseconds", pct.Float, timer.Tags, timer.Hostname)
 		}
 	})
 
 	prefix = "stats.gauge."
 	metrics.Gauges.Each(func(key, tagsKey string, gauge gostatsd.Gauge) {
-		addMetricData(key, "None", gauge.Value, gauge.Tags)
+		addMetricData(key, "None", gauge.Value, gauge.Tags, gauge.Hostname)
 	})
 
 	prefix = "stats.set."
 	metrics.Sets.Each(func(key, tagsKey string, set gostatsd.Set) {
-		addMetricData(key, "None", float64(len(set.Values)), set.Tags)
+		addMetricData(key, "None", float64(len(set.Values)), set.Tags, set.Hostname)
 	})
 
 	return metricData

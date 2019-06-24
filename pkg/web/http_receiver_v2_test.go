@@ -7,12 +7,12 @@ import (
 	"time"
 
 	"github.com/ash2k/stager/wait"
-	"github.com/varsitytutors/gostatsd"
-	"github.com/varsitytutors/gostatsd/pkg/statsd"
-	"github.com/varsitytutors/gostatsd/pkg/web"
 	"github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/require"
 	"github.com/tilinna/clock"
+	"github.com/varsitytutors/gostatsd"
+	"github.com/varsitytutors/gostatsd/pkg/statsd"
+	"github.com/varsitytutors/gostatsd/pkg/web"
 )
 
 func TestForwardingEndToEndV2(t *testing.T) {

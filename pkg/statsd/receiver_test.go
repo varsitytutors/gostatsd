@@ -7,9 +7,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/varsitytutors/gostatsd/pkg/fakesocket"
 	"github.com/magiconair/properties/assert"
 	"github.com/stretchr/testify/require"
+	"github.com/varsitytutors/gostatsd/pkg/fakesocket"
 )
 
 func BenchmarkReceive(b *testing.B) {

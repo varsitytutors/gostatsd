@@ -106,15 +106,16 @@ func TestSendMetricDimensions(t *testing.T) {
 			assert.Equal(t, "ns", *input.Namespace, "Namespace should be set correctly")
 
 			assert.Equal(t, "stats.counter.c1.count", *input.MetricData[0].MetricName)
-			assert.Equal(t, "stats.counter.c1.per_second", *input.MetricData[1].MetricName)
 
-			assert.Equal(t, 2, len(input.MetricData[0].Dimensions))
+			assert.Equal(t, 3, len(input.MetricData[0].Dimensions))
 
 			for i := 0; i < 2; i++ {
-				assert.Equal(t, "tag1", *input.MetricData[i].Dimensions[0].Name)
-				assert.Equal(t, "set", *input.MetricData[i].Dimensions[0].Value)
-				assert.Equal(t, "tag2", *input.MetricData[i].Dimensions[1].Name)
-				assert.Equal(t, "value2", *input.MetricData[i].Dimensions[1].Value)
+				assert.Equal(t, "hostname", *input.MetricData[i].Dimensions[0].Name)
+				assert.Equal(t, "h1", *input.MetricData[i].Dimensions[0].Value)
+				assert.Equal(t, "tag1", *input.MetricData[i].Dimensions[1].Name)
+				assert.Equal(t, "set", *input.MetricData[i].Dimensions[1].Value)
+				assert.Equal(t, "tag2", *input.MetricData[i].Dimensions[2].Name)
+				assert.Equal(t, "value2", *input.MetricData[i].Dimensions[2].Value)
 			}
 
 			return nil, nil
