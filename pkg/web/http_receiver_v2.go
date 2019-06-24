@@ -10,9 +10,9 @@ import (
 	"github.com/varsitytutors/gostatsd"
 	"github.com/varsitytutors/gostatsd/pb"
 
-	"github.com/varsitytutors/gostatsd/pkg/stats"
 	"github.com/golang/protobuf/proto"
 	"github.com/sirupsen/logrus"
+	"github.com/varsitytutors/gostatsd/pkg/stats"
 )
 
 type rawHttpHandlerV2 struct {

@@ -3,9 +3,9 @@ package statsd
 import (
 	"testing"
 
+	"github.com/stretchr/testify/require"
 	"github.com/varsitytutors/gostatsd"
 	"github.com/varsitytutors/gostatsd/pb"
-	"github.com/stretchr/testify/require"
 )
 
 func TestHttpForwarderV2Translation(t *testing.T) {
